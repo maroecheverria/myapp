@@ -1,11 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import CustomNavBar from './components/NavBar'
+import ItemListContainer from './components/ItemListConainer'
+import {Component} from "react";
 
-function App() {
-  return (
-    <CustomNavBar />
-  );
-}
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <CustomNavBar />
+        <ItemListContainer greeting="Saludos!" />
+      </div>
+    );
+  }
+};
 
 export default App;
