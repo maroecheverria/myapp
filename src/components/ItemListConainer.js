@@ -1,7 +1,7 @@
 
 import { Component } from 'react';
 
-class CartWidget extends Component {
+class ItemListConainer extends Component {
   render() {
     return (
         <h1>{this.props.greeting}</h1>
@@ -9,4 +9,4 @@ class CartWidget extends Component {
   }
 }
 
-export default CartWidget;
+export default ItemListConainer;

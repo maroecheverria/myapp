@@ -2,9 +2,10 @@
   text-align: center;
 }
 
-.App-logo {
+.Cart-logo {
   height: 40px;
   pointer-events: none;
+  margin: 0px 10px;
 }
 
 .App-header {
@@ -20,13 +21,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

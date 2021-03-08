@@ -5,7 +5,7 @@ import logo from '../cart.png';
 class CartWidget extends Component {
   render() {
     return (
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="Cart-logo" alt="logo" />
     )
   }
 }
