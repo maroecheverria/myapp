@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from "./CartWidget";
 
 class CustomNavBar extends Component {
@@ -20,10 +20,6 @@ class CustomNavBar extends Component {
               </NavDropdown>
             </Nav>
             <CartWidget/>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button variant="outline-success">Search</Button>
-            </Form>
           </Navbar.Collapse>
         </Navbar>
       </div>
