@@ -1,9 +1,7 @@
-import {Component} from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from "./CartWidget";
 
-class CustomNavBar extends Component {
-  render() {
+const CustomNavBar = () => {
     return (
       <div className="NavBar">
         <Navbar bg="light" expand="lg">
@@ -24,7 +22,6 @@ class CustomNavBar extends Component {
         </Navbar>
       </div>
     );
-  }
 };
 
 export default CustomNavBar;

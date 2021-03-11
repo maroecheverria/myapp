@@ -22,3 +22,20 @@
 .App-link {
   color: #61dafb;
 }
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.mt-10 {
+  margin-top: 20px;
+}
+
