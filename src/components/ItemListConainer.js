@@ -8,9 +8,9 @@ const ItemListConainer = ({items}) => {
 
   const [stockActual, setStockActual] = useState(5);
 
-  const restartStock = (e, quantity) => {
+  const subtractStock = (e, quantity) => {
     e.preventDefault();
-    if (quantity > stockActual)
+    if (quantity > 0 && quantity > stockActual)
       alert("No hay stock suficiente");
     else
       setStockActual((stockActual) => stockActual - quantity);
@@ -18,7 +18,7 @@ const ItemListConainer = ({items}) => {
 
   return (
     <Container>
-      <ItemCount stock={stockActual} initial={1} onAdd={restartStock} />
+      <ItemCount stock={stockActual} initial={1} onAdd={subtractStock} />
       <ItemList items={items} />
     </Container>
   );
