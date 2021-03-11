@@ -4,10 +4,10 @@ import ItemListContainer from './components/ItemListConainer'
 import { useEffect, useState } from "react";
 
 //Frutas
-import manzana from './img/productos/manzana.jpg';
-import pera from './img/productos/pera.jpg';
-import banana from './img/productos/banana.jpg';
-import uva from './img/productos/uva.jpg';
+import manzana from './img/products/manzana.jpg';
+import pera from './img/products/pera.jpg';
+import banana from './img/products/banana.jpg';
+import uva from './img/products/uva.jpg';
 
 const App = () => {
 
