@@ -3,7 +3,20 @@ import { Form, FormControl, Button, Badge, Row, Col } from 'react-bootstrap';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
-   const [quantity, setQuantity] = useState(1);
+   const [quantity, setQuantity] = useState(initial);
+
+   const handleInputChange = (e) => {
+    const q = e.target.value;
+
+    if ( q > 0 && q <= stock) {
+        setQuantity(q);
+    }
+   };
+
+   const handleOnClick = (e, q) => {
+    onAdd(e, q);
+    setQuantity(1);
+   };
 
     return(
         <Row className="mt-10">
@@ -15,10 +28,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
                     <FormControl
                         type="number"
                         value={quantity}
-                        onChange={ e => setQuantity(e.target.value) }
+                        onChange={ (e) => handleInputChange(e) }
                         className="mr-sm-2"
                     />
-                    <Button variant="outline-success" onClick={ (e) => onAdd(e, quantity) }>Agregar al carrito</Button>
+                    <Button variant="outline-success" onClick={ (e) => handleOnClick(e, quantity) }>Agregar al carrito</Button>
                 </Form>
             </Col>
         </Row>
