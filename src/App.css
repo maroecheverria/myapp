@@ -23,8 +23,24 @@
   color: #61dafb;
 }
 
+.ma {
+  margin: auto;
+}
+
+.ml-all-10 {
+  margin: 10px;
+}
+
 .ml-10 {
   margin-left: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
 }
 
 .text-start {
@@ -35,7 +51,5 @@
   text-align: end;
 }
 
-.mt-10 {
-  margin-top: 20px;
-}
+
 

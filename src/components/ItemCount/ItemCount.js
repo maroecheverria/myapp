@@ -19,7 +19,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
    };
 
     return(
-        <Row className="mt-10">
+        <Row className="mt-20">
             <Col sm={6} className="text-start">
                 <h2>Stock<Badge variant="info" className="ml-10">{stock}</Badge></h2>
             </Col>
