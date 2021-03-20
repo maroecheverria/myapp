@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import ItemList from './ItemList';
+import mockItems from '../../data/items.jsx';
 
-//Frutas
-import manzana from '../../img/products/manzana.jpg';
-import pera from '../../img/products/pera.jpg';
-import banana from '../../img/products/banana.jpg';
-import uva from '../../img/products/uva.jpg';
-
-const ItemListConainer = () => {
+const ItemListContainer = () => {
 
   const [stockActual, setStockActual] = useState(5);
   const [items, setItems] = useState([]);
@@ -18,12 +13,7 @@ const ItemListConainer = () => {
       //Simulate API request, only once
       new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve([
-            {id: 1, title: 'Manzana', pictureUrl: manzana},
-            {id: 2, title: 'Pera', pictureUrl: pera},
-            {id: 3, title: 'Banana', pictureUrl: banana},
-            {id: 4, title: 'Uva', pictureUrl: uva},
-          ]);
+          resolve(mockItems);
         }, 2000);
       }).then((result) => { return setItems(result); });
     }, []);
@@ -39,10 +29,15 @@ const ItemListConainer = () => {
   return (
     <Container>
       <ItemCount stock={stockActual} initial={1} onAdd={subtractStock} />
+      <Row className="mt-20">
+          <Col sm={12} className="text-start">
+              <h2>Productos Destacados</h2>
+          </Col>
+      </Row>
       <ItemList items={items} />
     </Container>
   );
 
 }
 
-export default ItemListConainer;
+export default ItemListContainer;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Collapse, Button } from 'react-bootstrap';
+import { Collapse, Button, Card } from 'react-bootstrap';
 import ItemDetail from "./ItemDetail";
 
 //Fruta
@@ -29,6 +29,7 @@ const ItemDetailContainer = ({item}) => {
 
     return (
       <div>
+        <Card.Title>{item.title}</Card.Title>
         <Button
           className="mb-10"
           variant="outline-info"

@@ -7,7 +7,6 @@ const Item = ({item}) => {
       <Card className="ml-all-10" style={{ width: '16rem' }} >
         <Card.Img variant="top" src={item.pictureUrl} />
         <Card.Body>
-          <Card.Title>{item.title}</Card.Title>
             <ItemDetailContainer item={item} />
         </Card.Body>
       </Card>
