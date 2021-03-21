@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import Item from '../Item/Item';
 import mockItems from '../../data/items.jsx';
@@ -7,7 +7,7 @@ import mockItems from '../../data/items.jsx';
 const ItemList = () => {
 
     const [items, setItems] = useState([]);
-    const { id } = useParams();
+    const { categoryId } = useParams();
 
      useEffect(() => {
       //Simulate API request, only once
@@ -15,15 +15,13 @@ const ItemList = () => {
         setTimeout(() => {
           resolve(mockItems);
         }, 2000);
-      }).then((result) => { return setItems(id ? result.filter((item) => item.categoryId === parseInt(id)) : result); });
-    }, [id]);
+      }).then((result) => { setItems(categoryId ? result.filter((item) => item.categoryId === parseInt(categoryId)) : result); });
+    }, [categoryId]);
 
     return (
-        <Container>
-            <Row style={{margin: 'auto'}}>
-                { items.map((x, index) => <Item key={index} item={x} />) }
-            </Row>
-        </Container>
+        <Row className="mt-20" style={{margin: 'auto'}}>
+            { items.map((x, index) => <Item key={index} item={x} />) }
+        </Row>
     );
   }
   export default ItemList;

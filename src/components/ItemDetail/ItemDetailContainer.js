@@ -1,50 +1,41 @@
-import { useState } from 'react';
-import { Collapse, Button, Card } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { Card, Row } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import ItemPrice from '../ItemDetail/ItemPrice';
 import ItemDetail from "./ItemDetail";
+import mockItems from '../../data/items.jsx';
 
-//Fruta
-import manzana from '../../img/products/manzana.jpg';
+const ItemDetailContainer = () => {
 
-const ItemDetailContainer = ({item}) => {
-    const [itemMock, setItemMock] = useState({});
-    const [open, setOpen] = useState(false);
+    const [item, setItem] = useState({});
+    const [showItem, setShowItem] = useState(false);
+    const { itemId } = useParams();
 
-    const handleOnClick = (e) => {
-      if (!open) {
-        //Simulate API request
-        new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(
-              {id: 1, title: 'Manzana', price: 80, stock: 20, description: "Producto proveniente de huertas sustentables, sin insecticidas.", pictureUrl: manzana}
-            );
-          }, 2000);
-        }).then((result) => {
-          setItemMock(result);
-          setOpen(!open);
-        });
-      } else {
-        setOpen(!open);
-      }
-    };
+    useEffect(() => {
+      //Simulate API request, only once
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(mockItems);
+        }, 2000);
+      }).then((result) => {
+        setItem(result.filter(x => x.id === parseInt(itemId))[0])
+        setShowItem(true);
+      });
+    }, [itemId]);
 
     return (
-      <div>
-        <Card.Title>{item.title}</Card.Title>
-        <Button
-          className="mb-10"
-          variant="outline-info"
-          onClick={ (e) => handleOnClick(e) }
-          aria-controls={item.id}
-          aria-expanded={open}
-        >
-            Ver detalle
-        </Button>
-        <Collapse in={open}>
-          <div id={item.id}>
-            <ItemDetail item={itemMock} />
-          </div>
-        </Collapse>
-      </div>
+      <Row className="mt-20 d-flex justify-content-center">
+        { showItem &&
+          <Card className="ml-all-10"  style={{ width: '30rem' }} >
+            <Card.Img variant="top" src={item.pictureUrl} />
+            <Card.Body>
+              <Card.Title>{item.title}</Card.Title>
+                <ItemPrice item={item} />
+                <ItemDetail item={item} />
+            </Card.Body>
+          </Card>
+        }
+      </Row>
     );
 }
 

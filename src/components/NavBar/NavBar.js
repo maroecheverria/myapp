@@ -13,7 +13,7 @@ const CustomNavBar = () => {
               <NavDropdown title="Categorías" id="basic-nav-dropdown">
                 <NavLink to="/category/1" className="dropdown-item">Hombre</NavLink>
                 <NavLink to="/category/2" className="dropdown-item">Mujer</NavLink>
-                <NavLink to="/category/3" className="dropdown-item">Niñoz</NavLink>
+                <NavLink to="/category/3" className="dropdown-item">Niños</NavLink>
               </NavDropdown>
               <NavLink to="/about-us" className="nav-link">Quiénes Somos</NavLink>
               <NavLink to="/contact" className="nav-link">Contacto</NavLink>
