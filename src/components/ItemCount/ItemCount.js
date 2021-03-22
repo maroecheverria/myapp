@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, FormControl, Button, Badge, Row, Col } from 'react-bootstrap';
+import { Form, FormControl, Button, Row, Col } from 'react-bootstrap';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
@@ -19,19 +19,17 @@ const ItemCount = ({stock, initial, onAdd}) => {
    };
 
     return(
-        <Row className="mt-20">
-            <Col sm={6} className="text-start">
-                <h2>Stock<Badge variant="info" className="ml-10">{stock}</Badge></h2>
-            </Col>
-            <Col sm={6}>
-                <Form inline className="float-sm-right">
+        <Row>
+            <Col sm={12}>
+                <Form inline className="justify-content-center">
                     <FormControl
                         type="number"
                         value={quantity}
                         onChange={ (e) => handleInputChange(e) }
-                        className="mr-sm-2"
+                        className="mr-sm-2 ml-all-10"
+                        style={{width: "70px"}}
                     />
-                    <Button variant="outline-success" onClick={ (e) => handleOnClick(e, quantity) }>Agregar al carrito</Button>
+                    <Button className="ml-all-10" variant="outline-success" onClick={ (e) => handleOnClick(e, quantity) }>Agregar al carrito</Button>
                 </Form>
             </Col>
         </Row>

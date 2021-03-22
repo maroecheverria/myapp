@@ -15,6 +15,9 @@ const App = () => {
         <div className="App">
           <BrowserRouter>
             <CustomNavBar />
+            <div style={{backgroundColor: "rgb(0, 123, 255, 0.25)"}}>
+              <img src={banner} alt="banner" />
+            </div>
             <Container>
               <Switch>
                 <Route path="/item/:itemId">

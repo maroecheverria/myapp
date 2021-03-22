@@ -1,8 +1,14 @@
 
+import { Row, Col } from 'react-bootstrap';
+
 const AboutUs = () => {
 
     return (
-        <div>Quiénes Somos</div>
+      <Row className="mt-20">
+        <Col sm={12} className="text-start">
+            <h2>Quénes Somos</h2>
+        </Col>
+      </Row>
       );
 }
 
