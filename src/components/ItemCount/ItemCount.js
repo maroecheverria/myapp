@@ -26,10 +26,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
                         type="number"
                         value={quantity}
                         onChange={ (e) => handleInputChange(e) }
-                        className="mr-sm-2 ml-all-10"
+                        className="mr-sm-2 m-all-10 mt-20"
                         style={{width: "70px"}}
                     />
-                    <Button className="ml-all-10" variant="outline-success" onClick={ (e) => handleOnClick(e, quantity) }>Agregar al carrito</Button>
+                    <Button className="m-all-10 mt-20" variant="outline-success" onClick={ (e) => handleOnClick(e, quantity) }>AGREGAR AL CARRITO</Button>
                 </Form>
             </Col>
         </Row>
