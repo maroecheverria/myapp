@@ -1,5 +1,4 @@
 import './App.css';
-import { useState } from 'react';
 import CustomNavBar from './components/NavBar/NavBar'
 import ItemList from './components/ItemList/ItemList';
 import ItemListContainer from './components/ItemList/ItemListContainer'
@@ -10,14 +9,9 @@ import Cart from './components/Cart/Cart';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import banner from './img/banner.png';
-
+import CartProvider from './provider/CartProvider'
 
 const App = () => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (item) => {
-    setCart([...cart, item]);
-  };
 
     return (
         <div className="App">
@@ -26,28 +20,30 @@ const App = () => {
             <div style={{backgroundColor: "rgb(0, 123, 255, 0.25)"}}>
               <img src={banner} alt="banner" />
             </div>
-            <Container>
-              <Switch>
-                <Route path="/item/:itemId">
-                  <ItemDetailContainer addToCart={addToCart} cart={cart} />
-                </Route>
-                <Route path="/category/:categoryId">
-                  <ItemList />
-                </Route>
-                <Route path="/cart/">
-                  <Cart cart={cart} />
-                </Route>
-                <Route path="/about-us">
-                  <AboutUs />
-                </Route>
-                <Route path="/contact">
-                  <Contact />
-                </Route>
-                <Route exact path="/">
-                  <ItemListContainer />
-                </Route>
-              </Switch>
-            </Container>
+            <CartProvider >
+              <Container>
+                <Switch>
+                  <Route path="/item/:itemId">
+                    <ItemDetailContainer />
+                  </Route>
+                  <Route path="/category/:categoryId">
+                    <ItemList />
+                  </Route>
+                  <Route path="/cart/">
+                    <Cart />
+                  </Route>
+                  <Route path="/about-us">
+                    <AboutUs />
+                  </Route>
+                  <Route path="/contact">
+                    <Contact />
+                  </Route>
+                  <Route exact path="/">
+                    <ItemListContainer />
+                  </Route>
+                </Switch>
+              </Container>
+            </CartProvider>
           </BrowserRouter>
         </div>
 

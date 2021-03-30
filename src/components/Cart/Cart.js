@@ -1,12 +1,14 @@
 import { Card, Row, ListGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import CartContext from '../../context/CartContext';
 
-const Cart = ({cart}) => {
-
-    const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-    const cartItemsCount = cart.length;
-    const cartItems = cart.map((item) => (
-        <ListGroup.Item>
+const Cart = () => {
+    const cartContext = useContext(CartContext);
+    const cartTotal = cartContext.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    const cartItemsCount = cartContext.cart.length;
+    const cartItems = cartContext.cart.map((item) => (
+        <ListGroup.Item key={item.id}>
             <strong>{`${item.title}:`}</strong> {`$${item.price} x ${item.quantity}`}
         </ListGroup.Item>
     ));
