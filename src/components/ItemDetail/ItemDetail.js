@@ -2,7 +2,7 @@ import { ListGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
-import CartContext from '../../context/CartContext';
+import CartContext from '../Cart/CartContext';
 
 const ItemDetail = ({item}) => {
     const cartContext = useContext(CartContext);
@@ -12,7 +12,7 @@ const ItemDetail = ({item}) => {
         e.preventDefault();
         if (quantity > 0 && quantity <= stockActual) {
             setStockActual((stockActual) => stockActual - quantity);
-            cartContext.addToCart({id: item.id, title: item.title, price: item.price, quantity: quantity})
+            cartContext.addItem({id: item.id, title: item.title, price: item.price, quantity: quantity})
         }
     };
 

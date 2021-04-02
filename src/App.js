@@ -9,41 +9,41 @@ import Cart from './components/Cart/Cart';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import banner from './img/banner.png';
-import CartProvider from './provider/CartProvider'
+import CartProvider from './components/Cart/CartProvider'
 
 const App = () => {
 
     return (
         <div className="App">
           <BrowserRouter>
+          <CartProvider >
             <CustomNavBar />
             <div style={{backgroundColor: "rgb(0, 123, 255, 0.25)"}}>
               <img src={banner} alt="banner" />
             </div>
-            <CartProvider >
-              <Container>
-                <Switch>
-                  <Route path="/item/:itemId">
-                    <ItemDetailContainer />
-                  </Route>
-                  <Route path="/category/:categoryId">
-                    <ItemList />
-                  </Route>
-                  <Route path="/cart/">
-                    <Cart />
-                  </Route>
-                  <Route path="/about-us">
-                    <AboutUs />
-                  </Route>
-                  <Route path="/contact">
-                    <Contact />
-                  </Route>
-                  <Route exact path="/">
-                    <ItemListContainer />
-                  </Route>
-                </Switch>
-              </Container>
-            </CartProvider>
+            <Container>
+              <Switch>
+                <Route path="/item/:itemId">
+                  <ItemDetailContainer />
+                </Route>
+                <Route path="/category/:categoryId">
+                  <ItemList />
+                </Route>
+                <Route path="/cart/">
+                  <Cart />
+                </Route>
+                <Route path="/about-us">
+                  <AboutUs />
+                </Route>
+                <Route path="/contact">
+                  <Contact />
+                </Route>
+                <Route exact path="/">
+                  <ItemListContainer />
+                </Route>
+              </Switch>
+            </Container>
+          </CartProvider>
           </BrowserRouter>
         </div>
 
