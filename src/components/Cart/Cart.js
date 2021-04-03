@@ -10,7 +10,6 @@ const Cart = () => {
 
     const handleOnClick = (e, item) => {
         e.preventDefault();
-        console.log(item);
         cartContext.removeItem(item);
     };
 

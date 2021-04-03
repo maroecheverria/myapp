@@ -15,7 +15,7 @@ export default function CartProvider({children}) {
     const addItem = (item) => {
         let itemIndex = findIndex(item);
         if (isInCart(item)) {
-            cart[itemIndex].quantity++;
+            cart[itemIndex].quantity += parseInt(item.quantity);
         } else {
             setCart([...cart, item]);
         }
