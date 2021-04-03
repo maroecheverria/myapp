@@ -9,7 +9,7 @@ import Cart from './components/Cart/Cart';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import banner from './img/banner.png';
-import CartProvider from './components/Cart/CartProvider'
+import CartProvider from './context/CartProvider'
 
 const App = () => {
 

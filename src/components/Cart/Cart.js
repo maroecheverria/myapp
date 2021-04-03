@@ -1,7 +1,7 @@
 import { Card, Row, ListGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import CartContext from './CartContext';
+import CartContext from '../../context/CartContext';
 
 const Cart = () => {
     const cartContext = useContext(CartContext);

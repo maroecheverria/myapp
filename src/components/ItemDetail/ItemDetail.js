@@ -2,7 +2,7 @@ import { ListGroup, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
-import CartContext from '../Cart/CartContext';
+import CartContext from '../../context/CartContext';
 
 const ItemDetail = ({item}) => {
     const cartContext = useContext(CartContext);

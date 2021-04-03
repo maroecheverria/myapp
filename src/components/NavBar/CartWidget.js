@@ -2,7 +2,7 @@ import logo from '../../img/cart.png';
 import { Link } from 'react-router-dom';
 import { Badge } from 'react-bootstrap';
 import { useContext } from 'react';
-import CartContext from '../Cart/CartContext';
+import CartContext from '../../context/CartContext';
 
 const CartWidget = () => {
 
