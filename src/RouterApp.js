@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import AboutUs from './components/AboutUs/AboutUs';
 import Contact from './components/Contact/Contact';
 import Cart from './components/Cart/Cart';
+import Checkout from "./components/Checkout/Checkout";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import banner from './img/banner.png';
@@ -26,6 +27,9 @@ const RouterApp = () => {
           </Route>
           <Route path="/cart/">
             <Cart />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
           <Route path="/about-us">
             <AboutUs />
