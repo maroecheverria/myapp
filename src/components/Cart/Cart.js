@@ -35,7 +35,7 @@ const Cart = () => {
 
   const cartItems = cartContext.cart.map((item) => (
     <ListGroup.Item key={item.id}>
-      <strong>{`${item.title}:`}</strong> {`$${item.price} x ${item.quantity} (${item.id})`}
+      <strong>{`${item.title}:`}</strong> {`$${item.price} x ${item.quantity}`}
       <Button
         className="m-all-10"
         variant="outline-danger"
