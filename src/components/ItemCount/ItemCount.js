@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, FormControl, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
@@ -22,7 +22,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <Row>
             <Col sm={12}>
                 <Form inline className="justify-content-center">
-                    <FormControl
+                    <Form.Control
                         type="number"
                         value={quantity}
                         onChange={ (e) => handleInputChange(e) }

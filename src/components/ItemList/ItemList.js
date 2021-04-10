@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import Item from "../Item/Item";
-import { getFirestore } from "../../configs/firebase";
+import { useState, useEffect } from 'react';
+import { Row } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import Item from '../Item/Item';
+import { getFirestore } from '../../configs/firebase';
 
 const ItemList = () => {
   const [items, setItems] = useState([]);
@@ -24,13 +24,14 @@ const ItemList = () => {
           querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         );
       });
+
   }, [categoryId]);
 
   return (
     <Row className="mt-20" style={{ margin: "auto" }}>
-      {items.map((x, index) => (
-        <Item key={index} item={x} />
-      ))}
+        {items.map((x, index) => (
+          <Item key={index} item={x} />
+        ))}
     </Row>
   );
 };
