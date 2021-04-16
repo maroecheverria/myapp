@@ -34,12 +34,6 @@ const CustomNavBar = () => {
                 </NavLink>
               ))}
             </NavDropdown>
-            <NavLink to="/about-us" className="nav-link">
-              Quiénes Somos
-            </NavLink>
-            <NavLink to="/contact" className="nav-link">
-              Contacto
-            </NavLink>
           </Nav>
           <CartWidget />
         </Navbar.Collapse>

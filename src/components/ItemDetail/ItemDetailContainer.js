@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import ItemPrice from '../ItemDetail/ItemPrice';
 import ItemDetail from "./ItemDetail";
 import { getFirestore } from "../../configs/firebase";
+import LinkButton from "../../components/Button/LinkButton";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
@@ -14,9 +15,7 @@ const ItemDetailContainer = () => {
       const db = getFirestore();
       const productsCollection = db.collection("products");
 
-      const product = productsCollection.doc(itemId);
-
-      product.get().then((doc) => {
+      productsCollection.doc(itemId).get().then((doc) => {
         setItem({ id: doc.id, ...doc.data() })
         setShowItem(true);
       });
@@ -25,7 +24,9 @@ const ItemDetailContainer = () => {
     return (
       <Row className="mt-20 d-flex justify-content-center">
         { showItem &&
+        <>
           <Card className="m-all-10 item"  style={{ width: '25rem' }} >
+            <div style={{textAlign: 'left'}}><LinkButton path={`/category/${item.categoryId}`} label="VOLVER" /></div>
             <Card.Img variant="top" src={item.imageUrl} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
@@ -33,6 +34,7 @@ const ItemDetailContainer = () => {
                 <ItemDetail item={item} />
             </Card.Body>
           </Card>
+        </>
         }
       </Row>
     );

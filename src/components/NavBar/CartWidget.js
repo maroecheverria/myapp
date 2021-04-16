@@ -7,11 +7,10 @@ import CartContext from '../../context/CartContext';
 const CartWidget = () => {
 
   const cartContext = useContext(CartContext);
-  const cartItemsCount = cartContext.cart.length;
 
   return (
     <Link to="/cart" className="nav-link"><img src={logo} className="Cart-logo" alt="logo" />
-        <Badge pill variant="info">{cartItemsCount}</Badge>
+        <Badge pill variant="info">{cartContext.cartLength}</Badge>
     </Link>
   )
 }

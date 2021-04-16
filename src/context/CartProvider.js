@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const [order, setOrder] = useState({});
+  const [cartLength, setCartLength] = useState(0);
 
   const findIndex = (item) => {
     return cart.findIndex((elem) => elem.id === item.id);
@@ -15,11 +15,15 @@ export default function CartProvider({ children }) {
 
   const addItem = (item) => {
     let itemIndex = findIndex(item);
+
     if (isInCart(item)) {
-      cart[itemIndex].quantity += parseInt(item.quantity);
+      let newQuantity = parseInt(cart[itemIndex].quantity) + parseInt(item.quantity);
+      cart[itemIndex].quantity = newQuantity;
     } else {
       setCart([...cart, item]);
     }
+
+    setCartLength(parseInt(cartLength) + parseInt(item.quantity));
   };
 
   const removeItem = (item) => {
@@ -29,10 +33,10 @@ export default function CartProvider({ children }) {
           return i.id !== item.id;
         })
       );
+      console.log(cartLength - parseInt(item.quantity))
+      setCartLength(cartLength - parseInt(item.quantity));
     }
   };
-
-  const totalItems = cart.length;
 
   const total = cart.reduce(
     (total, item) => total + parseInt(item.price) * parseInt(item.quantity),
@@ -43,22 +47,16 @@ export default function CartProvider({ children }) {
     setCart([]);
   };
 
-  const createOrder = (id) => {
-    setOrder({ id: id });
-  };
-
   return (
     <CartContext.Provider
       value={{
         cart,
+        cartLength,
         addItem,
         removeItem,
         isInCart,
         total,
-        totalItems,
         clear,
-        order,
-        createOrder,
       }}
     >
       {children}

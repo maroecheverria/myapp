@@ -1,22 +1,20 @@
-import CustomNavBar from './components/NavBar/NavBar'
-import ItemList from './components/ItemList/ItemList';
-import ItemListContainer from './components/ItemList/ItemListContainer'
-import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
-import AboutUs from './components/AboutUs/AboutUs';
-import Contact from './components/Contact/Contact';
-import Cart from './components/Cart/Cart';
+import CustomNavBar from "./components/NavBar/NavBar";
+import ItemList from "./components/ItemList/ItemList";
+import ItemListContainer from "./components/ItemList/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
+import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
-import banner from './img/banner.png';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import Payment from "./components/Checkout/Payment";
+import NotFoundPage from "./components/Pages/NotFoundPage";
+import Banner from "./components/Banner/Banner";
 
 const RouterApp = () => {
   return (
     <BrowserRouter>
       <CustomNavBar />
-      <div style={{backgroundColor: "rgb(0, 123, 255, 0.25)"}}>
-        <img src={banner} alt="banner" />
-      </div>
+      <Banner />
       <Container>
         <Switch>
           <Route path="/item/:itemId">
@@ -28,17 +26,17 @@ const RouterApp = () => {
           <Route path="/cart/">
             <Cart />
           </Route>
+          <Route path="/payment/:orderId">
+            <Payment />
+          </Route>
           <Route path="/checkout">
             <Checkout />
           </Route>
-          <Route path="/about-us">
-            <AboutUs />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
           <Route exact path="/">
             <ItemListContainer />
+          </Route>
+          <Route path="*" >
+            <NotFoundPage />
           </Route>
         </Switch>
       </Container>
