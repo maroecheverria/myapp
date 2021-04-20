@@ -33,7 +33,6 @@ export default function CartProvider({ children }) {
           return i.id !== item.id;
         })
       );
-      console.log(cartLength - parseInt(item.quantity))
       setCartLength(cartLength - parseInt(item.quantity));
     }
   };
